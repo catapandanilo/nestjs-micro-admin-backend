@@ -15,7 +15,7 @@ export class AppService {
 
   private readonly logger = new Logger(AppService.name);
 
-  async create(category: Category): Promise<Category> {
+  async createCategory(category: Category): Promise<Category> {
     try {
       const createdCategory = new this.categoryModel(category);
       return await createdCategory.save();

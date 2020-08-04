@@ -12,6 +12,8 @@ export class AppController {
   @EventPattern('create-category')
   async createCategory(@Payload() category: Category) {
     this.logger.log(`categoria: ${JSON.stringify(category)}`);
+
+    this.appService.createCategory(category);
   }
 
 }
