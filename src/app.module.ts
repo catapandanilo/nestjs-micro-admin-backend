@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
-import { PlayerSchema } from './players/player.schema';
-import { CategorySchema } from './categories/category.schema';
+import { PlayerSchema } from './interfaces/players/player.schema';
+import { CategorySchema } from './interfaces/categories/category.schema';
 import { AppService } from './app.service';
 
 @Module({
