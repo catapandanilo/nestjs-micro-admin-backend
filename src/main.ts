@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
@@ -9,7 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
     transport: Transport.RMQ,
     options: {
-      urls: ['amqp://user:SENHA@IPCONEXAO_RABBITMQ_AWS:PORTA_APLICACAO/VITURAL_HOST'],
+      urls: [`${process.env.BROKEN_PROTOCOL}://${process.env.RABBITMQ_USER}:${process.env.RABBITMQ_PASS}@${process.env.RABBITMQ_URL_INSTANCE}:${process.env.RABBITMQ_PORT_APP}/${process.env.RABBITMQ_VIRTUAL_HOST}`],
       queue: 'admin-backend'
     },
   });
